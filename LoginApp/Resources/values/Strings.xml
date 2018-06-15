@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="app_name">LoginApp</string>
+  <string name="app_version">Version 1.0.0</string>
+  <string name="app_copyright">© 2018-2028 ROZZ Studios</string>
+  <string name="app_rights">Todos os direitos reservados.</string>
+  <string name="app_login">Login</string>
+  <string name="app_identification">Usuário</string>
+  <string name="app_password">Senha</string>
+</resources>

@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+<style name="MyTheme" parent="Theme.AppCompat.Light.NoActionBar">
+  <item name="colorPrimary">@color/primary</item>
+  <item name="colorPrimaryDark">@color/primary_dark</item>
+  <item name="colorAccent">@color/accent</item>
+  <item name="drawerArrowStyle">@style/MyDrawerArrowStyle</item>
+</style>
+
+<style name="MyTheme.General" parent="Theme.AppCompat.Light.NoActionBar">
+  <item name="colorPrimary">@color/primary</item>
+  <item name="colorPrimaryDark">@color/primary_dark</item>
+  <item name="colorAccent">@color/accent</item>
+  <item name="drawerArrowStyle">@style/MyDrawerArrowStyle</item>
+  <item name="android:textColorPrimary">@color/white</item>
+</style>
+
+<style name="AppThemeLogin" parent ="Theme.AppCompat.Light.NoActionBar">
+  <item name="colorControlNormal">@color/white</item>
+  <item name="colorControlActivated">@color/primary_active</item>
+  <item name="colorControlHighlight">@color/accent</item>
+  <item name="android:textColorHint">@color/accent</item>
+</style>
+
+<style name="AppThemeSettings" parent ="Theme.AppCompat.Light.NoActionBar">
+  <item name="colorPrimary">@color/primary</item>
+  <item name="colorPrimaryDark">@color/primary_dark</item>
+  <item name="colorControlNormal">@color/primary</item>
+  <item name="colorControlActivated">@color/primary_active</item>
+  <item name="colorControlHighlight">@color/accent</item>
+  <item name="android:textColorHint">@color/accent</item>
+</style>
+
+<style name="MyDrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+  <item name="color">@color/white</item>
+  <item name="spinBars">true</item>
+</style>
+
+<!-- Estilo para o tamanho do texto da home toolbar -->
+<style name="CustomToolbarTitle" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+  <item name="android:textSize">22sp</item>
+</style>
+
+<style name="divider">
+  <item name="android:layout_width">match_parent</item>
+  <item name="android:layout_height">2dp</item>
+  <item name="android:background">@color/accent</item>
+  <item name="android:layout_marginTop">10dp</item>
+  <item name="android:layout_marginBottom">5dp</item>
+</style>
+
+<style name="dividerThin">
+  <item name="android:layout_width">match_parent</item>
+  <item name="android:layout_height">1dp</item>
+  <item name="android:background">@color/accent</item>
+  <item name="android:layout_marginTop">10dp</item>
+  <item name="android:layout_marginBottom">5dp</item>
+</style>
+
+<style name="dividerHome">
+  <item name="android:layout_width">match_parent</item>
+  <item name="android:layout_height">2dp</item>
+  <item name="android:background">@color/accent</item>
+  <item name="android:layout_marginTop">15dp</item>
+  <item name="android:layout_marginBottom">15dp</item>
+</style>
+</resources>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:background="@color/primary"
+    android:id="@+id/login_layout">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+        <ImageView
+            android:layout_height="120dp"
+            android:layout_width="120dp"
+            android:src="@drawable/icon_app"
+            android:layout_marginBottom="5dp" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:gravity="center_vertical"
+            android:layout_gravity="center_horizontal">
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/txtUsername"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:hint="@string/app_identification"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+            </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/txtPassword"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="sans-serif"
+                    android:inputType="textPassword"
+                    android:hint="@string/app_password"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+            </android.support.design.widget.TextInputLayout>
+            <Button
+                android:id="@+id/btnLogin"
+                android:text="@string/app_login"
+                android:background="@drawable/bg_button_login"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="35dp"
+                android:textColor="@color/black"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="16sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal">
+            <TextView
+                android:text="Não tem conta ainda?"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:textStyle="normal"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif-condensed-light"
+                android:gravity="center_horizontal"
+                android:textColor="@color/accent" />
+            <TextView
+                android:id="@+id/txtRegister"
+                android:text="Cadastre-se."
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="5dp"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif-condensed-light"
+                android:gravity="center_horizontal"
+                android:textColor="@color/accent"
+                android:clickable="true" />
+        </LinearLayout>
+        <TextView
+            android:text="@string/app_copyright"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:textStyle="normal"
+            android:textSize="18sp"
+            android:fontFamily="sans-serif-condensed-light"
+            android:gravity="center_horizontal"
+            android:textColor="@color/accent" />
+        <TextView
+            android:text="@string/app_rights"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="normal"
+            android:textSize="18sp"
+            android:fontFamily="sans-serif-condensed-light"
+            android:gravity="center_horizontal"
+            android:textColor="@color/accent" />
+    </LinearLayout>
+</LinearLayout>
