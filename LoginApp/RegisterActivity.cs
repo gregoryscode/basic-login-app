@@ -76,26 +76,31 @@ namespace LoginApp
                 if(string.IsNullOrEmpty(name))
                 {
                     ShowMessage("O campo 'Nome' é obrigatório.");
+                    return;
                 }
 
                 if(string.IsNullOrEmpty(username))
                 {
                     ShowMessage("O campo 'Usuário' é obrigatório.");
+                    return;
                 }
 
                 if(string.IsNullOrEmpty(password))
                 {
                     ShowMessage("O campo 'Senha' é obrigatório.");
+                    return;
                 }
 
                 if(string.IsNullOrEmpty(confirmPassword))
                 {
                     ShowMessage("O campo 'Confirmar senha' é obrigatório.");
+                    return;
                 }
 
                 if(!password.Equals(confirmPassword))
                 {
                     ShowMessage("A confirmação de senha é diferente da senha.");
+                    return;
                 }
 
                 users = Base.GetUsers();
