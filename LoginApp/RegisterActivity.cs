@@ -130,7 +130,7 @@ namespace LoginApp
             catch (Exception ex)
             {
                 ShowMessage($"Ocorreu um erro ao cadastrar o usuário: {ex.Message}");
-                Base.TrackEvent("Error when registering user", new Dictionary<string, string> { { "Error", ex.Message.Substring(0, 124) } });
+                Base.TrackError(ex);
             }
         }
 

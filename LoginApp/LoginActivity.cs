@@ -52,7 +52,7 @@ namespace LoginApp
             catch (Exception ex)
             {
                 ShowMessage($"Ocorreu um erro: {ex.Message}");
-                Base.TrackEvent("Error when launching app", new Dictionary<string, string> { { "Error", ex.Message.Substring(0, 124) } });
+                Base.TrackError(ex);
             }
         }
 

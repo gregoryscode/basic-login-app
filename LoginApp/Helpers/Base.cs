@@ -1,17 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using LoginApp.Models;
 using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 using Newtonsoft.Json;
 
 namespace LoginApp.Helpers
@@ -40,6 +32,11 @@ namespace LoginApp.Helpers
         public static void TrackEvent(string eventName, Dictionary<string, string> properties = null)
         {
             Analytics.TrackEvent(eventName, properties);
+        }
+
+        public static void TrackError(Exception ex, Dictionary<string, string> properties = null)
+        {
+            Crashes.TrackError(ex, properties);
         }
 
         public static void CreateSetupFolders()
