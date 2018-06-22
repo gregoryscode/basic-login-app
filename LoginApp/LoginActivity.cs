@@ -39,9 +39,9 @@ namespace LoginApp
 
             SetContentView(Resource.Layout.login_layout);
 
-            AppCenter.Start("793b0912-c637-49fd-9592-3f19b613057c",
-                   typeof(Analytics), typeof(Crashes));
-            AppCenter.Start("793b0912-c637-49fd-9592-3f19b613057c", typeof(Analytics), typeof(Crashes));
+            StartAppCenter();
+
+            Base.TrackEvent("App launched");
 
             try
             {
@@ -52,6 +52,12 @@ namespace LoginApp
             {
                 ShowMessage($"Ocorreu um erro: {ex.Message}");
             }
+        }
+
+        private void StartAppCenter()
+        {
+            AppCenter.Start("793b0912-c637-49fd-9592-3f19b613057c", typeof(Analytics), typeof(Crashes));
+            AppCenter.Start("793b0912-c637-49fd-9592-3f19b613057c", typeof(Analytics), typeof(Crashes));
         }
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Permission[] grantResults)

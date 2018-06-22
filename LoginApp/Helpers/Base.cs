@@ -11,6 +11,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using LoginApp.Models;
+using Microsoft.AppCenter.Analytics;
 using Newtonsoft.Json;
 
 namespace LoginApp.Helpers
@@ -34,6 +35,11 @@ namespace LoginApp.Helpers
                 return _instance;
 
             }
+        }
+
+        public static void TrackEvent(string eventName)
+        {
+            Analytics.TrackEvent(eventName);
         }
 
         public static void CreateSetupFolders()

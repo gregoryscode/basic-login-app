@@ -29,6 +29,8 @@ namespace LoginApp
 
             SetContentView(Resource.Layout.register_layout);
 
+            Base.TrackEvent("Register activity opened");
+
             SetupFields();
         }
 
