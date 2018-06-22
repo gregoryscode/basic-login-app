@@ -13,6 +13,7 @@ using System;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
+using System.Collections.Generic;
 
 namespace LoginApp
 {
@@ -51,12 +52,12 @@ namespace LoginApp
             catch (Exception ex)
             {
                 ShowMessage($"Ocorreu um erro: {ex.Message}");
+                Base.TrackEvent("Error when launching app", new Dictionary<string, string> { { "Error", ex.Message.Substring(0, 124) } });
             }
         }
 
         private void StartAppCenter()
         {
-            AppCenter.Start("793b0912-c637-49fd-9592-3f19b613057c", typeof(Analytics), typeof(Crashes));
             AppCenter.Start("793b0912-c637-49fd-9592-3f19b613057c", typeof(Analytics), typeof(Crashes));
         }
 
@@ -68,9 +69,9 @@ namespace LoginApp
             {
                 CheckPermissions();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                ShowMessage($"Ocorreu um erro: {ex.Message}");
+                throw;
             }
         }
 

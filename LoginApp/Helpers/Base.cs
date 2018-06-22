@@ -37,9 +37,9 @@ namespace LoginApp.Helpers
             }
         }
 
-        public static void TrackEvent(string eventName)
+        public static void TrackEvent(string eventName, Dictionary<string, string> properties = null)
         {
-            Analytics.TrackEvent(eventName);
+            Analytics.TrackEvent(eventName, properties);
         }
 
         public static void CreateSetupFolders()
