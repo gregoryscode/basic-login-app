@@ -13,6 +13,7 @@ using System;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
+using Microsoft.AppCenter.Push;
 using System.Collections.Generic;
 
 namespace LoginApp
@@ -58,7 +59,8 @@ namespace LoginApp
 
         private void StartAppCenter()
         {
-            AppCenter.Start("793b0912-c637-49fd-9592-3f19b613057c", typeof(Analytics), typeof(Crashes));
+            Push.SetSenderId("1022787026315");
+            AppCenter.Start("793b0912-c637-49fd-9592-3f19b613057c", typeof(Analytics), typeof(Crashes), typeof(Push));
         }
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Permission[] grantResults)
