@@ -10,7 +10,9 @@ using Android.Support.V7.App;
 using Android.Widget;
 using LoginApp.Helpers;
 using System;
-using System.IO;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 
 namespace LoginApp
 {
@@ -36,6 +38,10 @@ namespace LoginApp
             base.OnCreate(savedInstanceState);
 
             SetContentView(Resource.Layout.login_layout);
+
+            AppCenter.Start("793b0912-c637-49fd-9592-3f19b613057c",
+                   typeof(Analytics), typeof(Crashes));
+            AppCenter.Start("793b0912-c637-49fd-9592-3f19b613057c", typeof(Analytics), typeof(Crashes));
 
             try
             {
