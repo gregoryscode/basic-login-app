@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:background="@color/white">
+  <android.support.v7.widget.Toolbar
+      android:id="@+id/tbHome"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:minHeight="?attr/actionBarSize"
+      android:background="@color/primary"
+      android:elevation="4dp"
+      app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+      app:popupTheme="@style/ThemeOverlay.AppCompat.Dark" />
+  <android.support.design.widget.CoordinatorLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp">
+
+      <TextView 
+        android:id="@+id/txtWelcome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-condensed"
+        android:textSize="30sp"
+        android:textColor="@color/primary"/>
+
+      <View
+        android:background="@color/primary"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="5dp" />
+      
+      <android.support.design.widget.TextInputLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="16dp">
+        <EditText
+            android:id="@+id/txtCommand"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="Escreva um comando..."
+            android:inputType="textPassword"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+      </android.support.design.widget.TextInputLayout>
+    </LinearLayout>
+    <com.github.clans.fab.FloatingActionButton
+        android:id="@+id/fabSend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="12dp"
+        android:src="@drawable/icon_send"
+        android:clickable="true"
+        app:fab_shadowColor="#00FFFFFF"
+        app:fab_colorNormal="#272B35"
+        app:fab_colorPressed="@color/accent"
+        app:fab_colorRipple="#272B35" />
+    <com.github.clans.fab.FloatingActionButton
+        android:id="@+id/fabLogout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="12dp"
+        android:layout_marginRight="80dp"
+        android:src="@drawable/icon_power"
+        android:clickable="true"
+        app:fab_shadowColor="#00FFFFFF"
+        app:fab_colorNormal="#272B35"
+        app:fab_colorPressed="@color/accent"
+        app:fab_colorRipple="#272B35" />
+  </android.support.design.widget.CoordinatorLayout>
+</LinearLayout>

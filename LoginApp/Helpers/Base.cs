@@ -12,8 +12,9 @@ namespace LoginApp.Helpers
     {
         public static readonly string APP_FOLDER_PATH = Path.Combine(Android.OS.Environment.ExternalStorageDirectory.AbsolutePath, "LoginApp");
         public static readonly string USER_DATABASE_FILE = "userdatabase.json";
-
         private static Base _instance;
+
+        public User User { get; set; }
 
         public static Base Instance
         {

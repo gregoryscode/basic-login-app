@@ -14,7 +14,6 @@ using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using Microsoft.AppCenter.Push;
-using System.Collections.Generic;
 
 namespace LoginApp
 {
@@ -90,6 +89,7 @@ namespace LoginApp
             _btnLogin = FindViewById<Button>(Resource.Id.btnLogin);
 
             _txtRegister.Click += Register_Click;
+            _btnLogin.Click += Login_Click;
         }
 
         private void CheckPermissions()
@@ -147,6 +147,46 @@ namespace LoginApp
         private void Register_Click(object sender, System.EventArgs e)
         {
             StartActivity(typeof(RegisterActivity));
+        }
+
+        private void Login_Click(object sender, EventArgs e)
+        {
+            string username = _txtUsername.Text;
+            string password = _txtPassword.Text;
+
+            if(string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            {
+                ShowMessage("Credenciais inválidas.");
+                return;
+            }
+
+            var users = Base.GetUsers();
+
+            if(users == null)
+            {
+                ShowMessage("Não há usuários cadastrados na base de dados.");
+                return;
+            }
+
+            var user = users.Find(g => g.Username.Equals(username));
+
+            if(user == null)
+            {
+                ShowMessage("Usuário não encontrado na base de dados.");
+                return;
+            }
+
+            if(user.Password.Equals(password))
+            {
+                Base.Instance.User = user;
+                StartActivity(typeof(HomeActivity));
+                Finish();
+            }
+            else
+            {
+                ShowMessage("Senha inválida.");
+                return;
+            }
         }
 
         private void ShowMessage(string message)
