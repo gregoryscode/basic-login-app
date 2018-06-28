@@ -38,46 +38,88 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="5dp" />
-      
+
+      <android.support.design.widget.TextInputLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="20dp">
+        <EditText
+            android:id="@+id/txtDevice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="Informe o nome do dispositivo"
+            android:inputType="text"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+      </android.support.design.widget.TextInputLayout>
+
       <android.support.design.widget.TextInputLayout
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:layout_marginTop="16dp">
+          android:layout_marginTop="5dp">
         <EditText
             android:id="@+id/txtCommand"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:hint="Escreva um comando..."
-            android:inputType="textPassword"
+            android:hint="Escreva um comando"
+            android:inputType="text"
             android:textColor="@color/black"
             android:textSize="20sp" />
       </android.support.design.widget.TextInputLayout>
     </LinearLayout>
-    <com.github.clans.fab.FloatingActionButton
-        android:id="@+id/fabSend"
+
+    <!-- MENU -->
+    <com.github.clans.fab.FloatingActionMenu
+        android:id="@+id/fam_home_exam"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:layout_margin="12dp"
-        android:src="@drawable/icon_send"
+        android:layout_marginRight="12dp"
+        android:layout_marginBottom="16dp"
         android:clickable="true"
-        app:fab_shadowColor="#00FFFFFF"
-        app:fab_colorNormal="#272B35"
-        app:fab_colorPressed="@color/accent"
-        app:fab_colorRipple="#272B35" />
-    <com.github.clans.fab.FloatingActionButton
-        android:id="@+id/fabLogout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_marginBottom="12dp"
-        android:layout_marginRight="80dp"
-        android:src="@drawable/icon_power"
-        android:clickable="true"
-        app:fab_shadowColor="#00FFFFFF"
-        app:fab_colorNormal="#272B35"
-        app:fab_colorPressed="@color/accent"
-        app:fab_colorRipple="#272B35" />
+        app:menu_icon="@drawable/icon_menu"
+        app:menu_animationDelayPerItem="0"
+        app:menu_shadowColor="#00FFFFFF"
+        app:menu_colorNormal="#272B35"
+        app:menu_colorPressed="@color/accent"
+        app:menu_colorRipple="#272B35"
+        app:menu_labels_textSize="20sp">
+      <!-- ENVIAR -->
+      <com.github.clans.fab.FloatingActionButton
+          android:id="@+id/fabSend"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:src="@drawable/icon_send"
+          app:fab_shadowColor="#00FFFFFF"
+          app:fab_colorNormal="#272B35"
+          app:fab_colorPressed="@color/accent"
+          app:fab_size="mini"
+          app:fab_label="Enviar" />
+      <!-- CONECTAR -->
+      <com.github.clans.fab.FloatingActionButton
+          android:id="@+id/fabConnect"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:src="@drawable/icon_connect"
+          app:fab_shadowColor="#00FFFFFF"
+          app:fab_colorNormal="#272B35"
+          app:fab_colorPressed="@color/accent"
+          app:fab_size="mini"
+          app:fab_label="Conectar" />
+      <!-- SAIR -->
+      <com.github.clans.fab.FloatingActionButton
+          android:id="@+id/fabLogout"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:src="@drawable/icon_power"
+          app:fab_shadowColor="#00FFFFFF"
+          app:fab_colorNormal="#272B35"
+          app:fab_colorPressed="@color/accent"
+          app:fab_size="mini"
+          app:fab_label="Sair" />
+    </com.github.clans.fab.FloatingActionMenu>   
+
   </android.support.design.widget.CoordinatorLayout>
 </LinearLayout>
