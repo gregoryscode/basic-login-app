@@ -72,7 +72,7 @@
 
     <!-- MENU -->
     <com.github.clans.fab.FloatingActionMenu
-        android:id="@+id/fam_home_exam"
+        android:id="@+id/famHome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
@@ -93,7 +93,7 @@
           android:layout_height="wrap_content"
           android:src="@drawable/icon_send"
           app:fab_shadowColor="#00FFFFFF"
-          app:fab_colorNormal="#272B35"
+          app:fab_colorNormal="@color/primary"
           app:fab_colorPressed="@color/accent"
           app:fab_size="mini"
           app:fab_label="Enviar" />
@@ -104,7 +104,7 @@
           android:layout_height="wrap_content"
           android:src="@drawable/icon_connect"
           app:fab_shadowColor="#00FFFFFF"
-          app:fab_colorNormal="#272B35"
+          app:fab_colorNormal="@color/primary"
           app:fab_colorPressed="@color/accent"
           app:fab_size="mini"
           app:fab_label="Conectar" />
@@ -115,7 +115,7 @@
           android:layout_height="wrap_content"
           android:src="@drawable/icon_power"
           app:fab_shadowColor="#00FFFFFF"
-          app:fab_colorNormal="#272B35"
+          app:fab_colorNormal="@color/primary"
           app:fab_colorPressed="@color/accent"
           app:fab_size="mini"
           app:fab_label="Sair" />

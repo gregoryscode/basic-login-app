@@ -17,6 +17,7 @@ namespace LoginApp
         private FloatingActionButton _fabConnect;
         private FloatingActionButton _fabSend;
         private FloatingActionButton _fabLogout;
+        private FloatingActionMenu _famHome;
         private EditText _txtDevice;
         private EditText _txtCommand;
         private TextView _txtWelcome;
@@ -41,6 +42,7 @@ namespace LoginApp
             _fabConnect = FindViewById<FloatingActionButton>(Resource.Id.fabConnect);
             _fabSend = FindViewById<FloatingActionButton>(Resource.Id.fabSend);
             _fabLogout = FindViewById<FloatingActionButton>(Resource.Id.fabLogout);
+            _famHome = FindViewById<FloatingActionMenu>(Resource.Id.famHome);
 
             _txtWelcome.Text = $"Olá, {Base.Instance.User.Name}";
             _fabConnect.Click += Connect_Click;
@@ -53,56 +55,93 @@ namespace LoginApp
         private async void Connect_Click(object sender, EventArgs e)
         {
             ProgressDialog progressDialog = null;
+            CloseMenu(true);
 
             try
             {
-                progressDialog = ProgressDialog.Show(this, "Aguarde", "Estabelecendo conexão...", true);
-
-                if (Base.TurnOnBluetooth(true))
+                if (_fabConnect.LabelText.Equals("Conectar"))
                 {
-                    string device = _txtDevice.Text;
+                    progressDialog = ProgressDialog.Show(this, "Aguarde", "Estabelecendo conexão...", true);
 
-                    if (string.IsNullOrEmpty(device))
+                    if (Base.TurnOnBluetooth(true))
                     {
-                        Toast.MakeText(this, $"Dispositivo inválido.", ToastLength.Short).Show();
-                        return;
+                        string device = _txtDevice.Text;
+
+                        if (string.IsNullOrEmpty(device))
+                        {
+                            Toast.MakeText(this, $"Dispositivo inválido.", ToastLength.Short).Show();
+                            return;
+                        }
+
+                        await Task.Factory.StartNew(async () =>
+                        {
+                            if (await Base.Instance.ConnectToDevice(device.ToUpper()))
+                            {
+                                RunOnUiThread(() =>
+                                {
+                                    _fabConnect.SetColorNormalResId(Resource.Color.red);
+                                    _fabConnect.LabelText = "Desconectar";
+                                    progressDialog.Hide();
+                                    Toast.MakeText(this, $"Conexão realizada com sucesso.", ToastLength.Short).Show();
+                                });
+                            }
+                            else
+                            {
+                                RunOnUiThread(() =>
+                                {
+                                    progressDialog.Hide();
+                                    Toast.MakeText(this, $"Não foi possível realizar a conexão com o dispositivo.", ToastLength.Short).Show();
+                                });
+                            }
+                        });
                     }
+                    else
+                    {
+                        progressDialog.Hide();
+                        Toast.MakeText(this, $"Não foi possível ativar o bluetooth.", ToastLength.Short).Show();
+                    }
+                }
+                else
+                {
+                    progressDialog = ProgressDialog.Show(this, "Aguarde", "Finalizando conexão...", true);
 
                     await Task.Factory.StartNew(async () =>
                     {
-                        if (await Base.Instance.ConnectToDevice(device.ToUpper()))
-                        {
-                            RunOnUiThread(() => {
-                                // _txtBluetoothStatus.Text = GetString(Resource.String.app_connected);
-                                // _txtBluetoothStatus.SetTextColor(Color.ParseColor("#008B45"));
+                        await Task.Delay(1500);
 
+                        if (Base.Instance.DisconnectFromDevice())
+                        {
+                            RunOnUiThread(() =>
+                            {
+                                _fabConnect.SetColorNormalResId(Resource.Color.primary);
+                                _fabConnect.LabelText = "Conectar";
                                 progressDialog.Hide();
-                                Toast.MakeText(this, $"Conexão realizada com sucesso.", ToastLength.Short).Show();
+                                Toast.MakeText(this, $"Conexão finalizada com sucesso.", ToastLength.Short).Show();
                             });
                         }
                         else
                         {
-                            progressDialog.Hide();
-                            Toast.MakeText(this, $"Não foi possível realizar a conexão com o dispositivo.", ToastLength.Short).Show();
+                            RunOnUiThread(() =>
+                            {
+                                progressDialog.Hide();
+                                Toast.MakeText(this, $"Não foi possível finalizar a conexão.", ToastLength.Short).Show();
+                            });
                         }
                     });
-                }
-                else
-                {
-                    progressDialog.Hide();
-                    Toast.MakeText(this, $"Não foi possível ativar o bluetooth.", ToastLength.Short).Show();
-                }
 
+                }
             }
             catch (Exception ex)
             {
                 progressDialog.Hide();
-                Toast.MakeText(this, $"Não foi possível conectar com o dispositivo. Erro: {ex.Message}", ToastLength.Short).Show();
+                Toast.MakeText(this, $"Ocorreu um erro que não esperado: {ex.Message}", ToastLength.Short).Show();
             }
         }
 
         private void Send_Click(object sender, EventArgs e)
         {
+            CloseMenu(true);
+
             Task.Factory.StartNew(async () =>
             {
                 try
@@ -141,6 +180,11 @@ namespace LoginApp
         {
             StartActivity(typeof(LoginActivity));
             Finish();
+        }
+
+        private void CloseMenu(bool animate)
+        {
+            _famHome.Close(animate);
         }
     }
 }

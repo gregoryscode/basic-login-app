@@ -2681,7 +2681,7 @@ namespace LoginApp
 			public const int fab_label = 2131165199;
 			
 			// aapt resource value: 0x7f070088
-			public const int fam_home_exam = 2131165320;
+			public const int famHome = 2131165320;
 			
 			// aapt resource value: 0x7f07003c
 			public const int fill = 2131165244;
