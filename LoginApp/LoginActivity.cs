@@ -27,6 +27,8 @@ namespace LoginApp
             Manifest.Permission.WriteExternalStorage,
             Manifest.Permission.ReadExternalStorage,
             Manifest.Permission.Internet,
+            Manifest.Permission.Bluetooth,
+            Manifest.Permission.BluetoothAdmin
         };
 
         private Button _btnLogin;
@@ -154,7 +156,7 @@ namespace LoginApp
             string username = _txtUsername.Text;
             string password = _txtPassword.Text;
 
-            if(string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
                 ShowMessage("Credenciais inválidas.");
                 return;
@@ -162,7 +164,7 @@ namespace LoginApp
 
             var users = Base.GetUsers();
 
-            if(users == null)
+            if (users == null)
             {
                 ShowMessage("Não há usuários cadastrados na base de dados.");
                 return;
@@ -170,13 +172,13 @@ namespace LoginApp
 
             var user = users.Find(g => g.Username.Equals(username));
 
-            if(user == null)
+            if (user == null)
             {
                 ShowMessage("Usuário não encontrado na base de dados.");
                 return;
             }
 
-            if(user.Password.Equals(password))
+            if (user.Password.Equals(password))
             {
                 Base.Instance.User = user;
                 StartActivity(typeof(HomeActivity));
