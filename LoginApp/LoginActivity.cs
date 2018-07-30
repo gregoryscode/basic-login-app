@@ -20,7 +20,6 @@ namespace LoginApp
     [Activity(Label = "LoginApp", Theme = "@style/AppThemeLogin", MainLauncher = true, Icon = "@drawable/icon_app")]
     public class LoginActivity : AppCompatActivity
     {
-
         private const int REQUEST_PERMISSIONS = 1;
         readonly string[] PERMISSIONS_REQUIRED =
         {
