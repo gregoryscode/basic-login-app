@@ -1,10 +1,12 @@
 # BasicLoginApp
-Basic login app in Xamarin.Android with local data repository through `Json` files.
+Basic login for Xamarin.Android with local data repository through `Json` files.
 
 <h2>Features</h2>
 
-- User registratin with username and password;
-- Sign up with users registered.
+- User registratin with name, username and password;
+- Sign up with users registered;
+- Possibility to connect/disconnect to a bluetooth device;
+- Send commands to the connected bluetooth device.
 
 <h2>Built with</h2>
 
