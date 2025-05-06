@@ -1,4 +1,4 @@
-# BasicLoginApp
+# basic-login-app
 Basic login for Xamarin.Android with local data repository through `Json` files.
 
 <h2>Features</h2>
